@@ -1,4 +1,4 @@
-# GateMaster 法的文書
+# MasterGate 法的文書
 
 App Store 申請時に必要なプライバシーポリシーと利用規約を管理。
 

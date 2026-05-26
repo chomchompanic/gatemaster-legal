@@ -2,7 +2,7 @@
 
 **最終更新日: 2026年5月23日**
 
-丁村將太（以下「開発者」）は、iOS アプリ「GateMaster」（以下「本アプリ」）におけるユーザーのプライバシーを最大限尊重します。本ポリシーは、本アプリが取り扱う情報と、その利用方法を説明します。
+丁村將太（以下「開発者」）は、iOS アプリ「MasterGate」（以下「本アプリ」）におけるユーザーのプライバシーを最大限尊重します。本ポリシーは、本アプリが取り扱う情報と、その利用方法を説明します。
 
 ---
 
@@ -101,7 +101,7 @@
 
 ## English Summary
 
-GateMaster (the "App") respects user privacy.
+MasterGate (the "App") respects user privacy.
 
 **Stored locally only (never transmitted):** blocked-app tokens, learning cards and progress, quiz history, notification permission state, in-app settings, usage budget.
 

@@ -22,10 +22,10 @@
 <body>
 <h1>プライバシーポリシー</h1>
 <p>
-<strong>最終更新日: 2026年6月3日</strong>
+<strong>最終更新日: 2026年6月4日</strong>
 </p>
 <p>
-丁村將太（以下「開発者」）は、iOS アプリ「MasterGate」（以下「本アプリ」）におけるユーザーのプライバシーを最大限尊重します。本ポリシーは、本アプリが取り扱う情報と、その利用方法を説明します。
+chom（以下「開発者」）は、iOS アプリ「MasterGate」（以下「本アプリ」）におけるユーザーのプライバシーを最大限尊重します。本ポリシーは、本アプリが取り扱う情報と、その利用方法を説明します。
 </p>
 <hr>
 <h2>1. 取り扱う情報</h2>
@@ -41,13 +41,17 @@
 <table><thead><tr><th>機能</th><th>送信される情報</th><th>送信先</th><th>利用枠</th></tr></thead><tbody>
 <tr><td>AI問題生成</td><td>ユーザーが入力したテーマ文字列</td><td>開発者運用の Cloudflare Workers サーバー → Google Gemini API</td><td>無料枠は生涯10問、超過後はプレミアム</td></tr>
 <tr><td>写真からの取込（AI後処理）</td><td>OCR で認識されたテキスト</td><td>同上</td><td>無料枠は月10回、超過後はプレミアム</td></tr>
-<tr><td>プレミアム購入</td><td>App Store 決済レシート</td><td>Apple, RevenueCat（本番リリース時）</td><td>—</td></tr>
+<tr><td>プレミアム購入</td><td>App Store 決済レシート</td><td>Apple, RevenueCat</td><td>—</td></tr>
+<tr><td>広告配信（無料ユーザーのみ）</td><td>広告識別子（IDFA）、診断情報、おおまかな国・地域</td><td>Google AdMob</td><td>プレミアム購入で広告非表示</td></tr>
 </tbody></table>
 <p>
 これらの通信内容には、ユーザー個人を特定する情報は含まれません。AI機能の無料枠超過時はペイウォール（プレミアム購入導線）が表示されますが、外部送信は発生しません。写真からの取込は端末内 Vision Framework で OCR 処理されるため、AI 後処理を行わない場合は外部送信ゼロです。
 </p>
+<p>
+広告配信については、初回起動時に App Tracking Transparency（ATT）の許可ダイアログが表示されます。トラッキングを許可しない場合でも、関連性の低い広告は表示されます（広告自体は非表示にできません。プレミアム会員になると広告は完全に非表示になります）。
+</p>
 <h3>1.3 取得しない情報</h3>
-<ul><li>氏名、メールアドレス、電話番号などの個人識別情報</li><li>位置情報</li><li>連絡先・写真・カレンダー等の他アプリのデータ</li><li>広告 ID、デバイス ID</li><li>ブロック対象アプリの実際の使用履歴（iOS FamilyControls の制約により開発者は取得不可）</li></ul>
+<ul><li>氏名、メールアドレス、電話番号などの個人識別情報</li><li>位置情報（おおまかな国・地域を除く。AdMob が広告配信のために自動取得）</li><li>連絡先・写真・カレンダー等の他アプリのデータ</li><li>ブロック対象アプリの実際の使用履歴（iOS FamilyControls の制約により開発者は取得不可）</li></ul>
 <hr>
 <h2>2. 情報の利用目的</h2>
 <ul><li>本アプリの機能を提供するため</li><li>AI問題生成および OCR テキスト解析の結果をユーザーに返すため</li><li>課金処理の検証・購入の復元のため</li></ul>
@@ -59,8 +63,9 @@
 <table><thead><tr><th>サービス</th><th>役割</th><th>プライバシーポリシー</th></tr></thead><tbody>
 <tr><td>Apple（App Store / iOS）</td><td>アプリ配信・課金処理・端末 API</td><td><a href='https://www.apple.com/jp/legal/privacy/'>https://www.apple.com/jp/legal/privacy/</a></td></tr>
 <tr><td>Google Gemini API</td><td>AI問題生成・OCR後処理</td><td><a href='https://policies.google.com/privacy'>https://policies.google.com/privacy</a></td></tr>
+<tr><td>Google AdMob</td><td>広告配信（無料ユーザーのみ）</td><td><a href='https://policies.google.com/technologies/ads'>https://policies.google.com/technologies/ads</a></td></tr>
 <tr><td>Cloudflare Workers</td><td>AI機能のための中継サーバー</td><td><a href='https://www.cloudflare.com/privacypolicy/'>https://www.cloudflare.com/privacypolicy/</a></td></tr>
-<tr><td>RevenueCat（本番リリース時）</td><td>サブスクリプション管理</td><td><a href='https://www.revenuecat.com/privacy'>https://www.revenuecat.com/privacy</a></td></tr>
+<tr><td>RevenueCat</td><td>サブスクリプション管理</td><td><a href='https://www.revenuecat.com/privacy'>https://www.revenuecat.com/privacy</a></td></tr>
 </tbody></table>
 <p>
 これらのサービスへの送信内容は §1.2 のとおりです。Google および Cloudflare は API リクエストを一定期間サーバーログとして保管する場合があります。
@@ -76,7 +81,13 @@
 <hr>
 <h2>6. 子どもの利用について</h2>
 <p>
-本アプリは年齢制限を設けていませんが、未成年者が利用する場合は保護者の同意のもとでご利用ください。本アプリは子ども向けに設計されたものではなく、子どもから意図的に個人情報を収集しません。
+本アプリは、保護者がお子様の学習を支援する用途での利用も想定しています。13歳未満のお子様が本アプリを利用する場合は、必ず保護者の同意と監督のもとでご利用ください。
+</p>
+<p>
+本アプリは、お子様から意図的に個人情報を収集することはありません。本アプリで取り扱う学習進捗・クイズ履歴等は端末内にのみ保存されます（§1.1 参照）。
+</p>
+<p>
+保護者の皆様へ：本アプリには、お子様が設定（ジャンル選択・解除時間など）を勝手に変更できないようにする「親PIN」機能が用意されています。設定画面からご利用ください。
 </p>
 <hr>
 <h2>7. 本ポリシーの変更</h2>

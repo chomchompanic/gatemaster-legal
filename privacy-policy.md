@@ -1,6 +1,6 @@
 # プライバシーポリシー
 
-**最終更新日: 2026年6月4日**
+**最終更新日: 2026年6月5日**
 
 chom（以下「開発者」）は、iOS アプリ「MasterGate」（以下「本アプリ」）におけるユーザーのプライバシーを最大限尊重します。本ポリシーは、本アプリが取り扱う情報と、その利用方法を説明します。
 
@@ -28,17 +28,18 @@ chom（以下「開発者」）は、iOS アプリ「MasterGate」（以下「�
 | AI問題生成 | ユーザーが入力したテーマ文字列 | 開発者運用の Cloudflare Workers サーバー → Google Gemini API | 無料枠は生涯10問、超過後はプレミアム |
 | 写真からの取込（AI後処理） | OCR で認識されたテキスト | 同上 | 無料枠は月10回、超過後はプレミアム |
 | プレミアム購入 | App Store 決済レシート | Apple, RevenueCat | — |
-| 広告配信（無料ユーザーのみ） | 広告識別子（IDFA）、診断情報、おおまかな国・地域 | Google AdMob | プレミアム購入で広告非表示 |
+| 学習レポート（親モード・任意） | お子様の学習サマリー（解答数・正答率・パック別習得） | 開発者運用の Cloudflare Workers → LINE Messaging API → 保護者の LINE | 設定で連携した場合のみ |
 
 これらの通信内容には、ユーザー個人を特定する情報は含まれません。AI機能の無料枠超過時はペイウォール（プレミアム購入導線）が表示されますが、外部送信は発生しません。写真からの取込は端末内 Vision Framework で OCR 処理されるため、AI 後処理を行わない場合は外部送信ゼロです。
 
-広告配信については、初回起動時に App Tracking Transparency（ATT）の許可ダイアログが表示されます。トラッキングを許可しない場合でも、関連性の低い広告は表示されます（広告自体は非表示にできません。プレミアム会員になると広告は完全に非表示になります）。
+**本アプリは広告を一切表示しません**。トラッキング（IDFA）も収集しません。
 
 ### 1.3 取得しない情報
 
 - 氏名、メールアドレス、電話番号などの個人識別情報
-- 位置情報（おおまかな国・地域を除く。AdMob が広告配信のために自動取得）
+- 位置情報
 - 連絡先・写真・カレンダー等の他アプリのデータ
+- 広告識別子（IDFA）
 - ブロック対象アプリの実際の使用履歴（iOS FamilyControls の制約により開発者は取得不可）
 
 ---
@@ -59,8 +60,8 @@ chom（以下「開発者」）は、iOS アプリ「MasterGate」（以下「�
 |---|---|---|
 | Apple（App Store / iOS） | アプリ配信・課金処理・端末 API | https://www.apple.com/jp/legal/privacy/ |
 | Google Gemini API | AI問題生成・OCR後処理 | https://policies.google.com/privacy |
-| Google AdMob | 広告配信（無料ユーザーのみ） | https://policies.google.com/technologies/ads |
-| Cloudflare Workers | AI機能のための中継サーバー | https://www.cloudflare.com/privacypolicy/ |
+| Cloudflare Workers | AI機能・学習レポートのための中継サーバー | https://www.cloudflare.com/privacypolicy/ |
+| LINE Messaging API | 学習レポートの保護者へのプッシュ（任意連携時のみ） | https://line.me/ja/terms/policy/ |
 | RevenueCat | サブスクリプション管理 | https://www.revenuecat.com/privacy |
 
 これらのサービスへの送信内容は §1.2 のとおりです。Google および Cloudflare は API リクエストを一定期間サーバーログとして保管する場合があります。
@@ -117,6 +118,6 @@ MasterGate (the "App") respects user privacy.
 - Photo import (AI post-processing): the OCR-recognized text is sent the same way.
 - Subscription purchase: receipt is processed via Apple and RevenueCat.
 
-**Not collected:** name, email, phone, location, contacts, photos, advertising IDs, actual usage history of blocked apps.
+**Not collected:** name, email, phone, location, contacts, photos, advertising IDs, actual usage history of blocked apps. **No advertisements are shown.**
 
 Uninstalling the App deletes all locally stored data. For inquiries, contact chomurashouta@gmail.com.

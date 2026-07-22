@@ -1,8 +1,8 @@
 # プライバシーポリシー
 
-**最終更新日: 2026年6月5日**
+**最終更新日: 2026年7月22日**
 
-chom（以下「開発者」）は、iOS アプリ「MasterGate」（以下「本アプリ」）におけるユーザーのプライバシーを最大限尊重します。本ポリシーは、本アプリが取り扱う情報と、その利用方法を説明します。
+chom（以下「開発者」）は、iOS アプリ「スタブロ」（以下「本アプリ」）におけるユーザーのプライバシーを最大限尊重します。本ポリシーは、本アプリが取り扱う情報と、その利用方法を説明します。
 
 ---
 
@@ -27,20 +27,22 @@ chom（以下「開発者」）は、iOS アプリ「MasterGate」（以下「�
 |---|---|---|---|
 | AI問題生成 | ユーザーが入力したテーマ文字列 | 開発者運用の Cloudflare Workers サーバー → Google Gemini API | 無料枠は生涯10問、超過後はプレミアム |
 | 写真からの取込（AI後処理） | OCR で認識されたテキスト | 同上 | 無料枠は月10回、超過後はプレミアム |
-| プレミアム購入 | App Store 決済レシート | Apple, RevenueCat | — |
+| プレミアム購入 | App Store 決済トランザクション | Apple（StoreKit） | — |
+| 広告表示（無料版のみ） | 広告配信に必要な端末情報。ATT を許可した場合のみ広告識別子（IDFA） | Google AdMob | プレミアムで非表示 |
 | 学習レポート（親モード・任意） | お子様の学習サマリー（解答数・正答率・パック別習得） | 開発者運用の Cloudflare Workers → LINE Messaging API → 保護者の LINE | 設定で連携した場合のみ |
 
-これらの通信内容には、ユーザー個人を特定する情報は含まれません。AI機能の無料枠超過時はペイウォール（プレミアム購入導線）が表示されますが、外部送信は発生しません。写真からの取込は端末内 Vision Framework で OCR 処理されるため、AI 後処理を行わない場合は外部送信ゼロです。
+これらの通信内容には、（広告配信を除き）ユーザー個人を特定する情報は含まれません。AI機能の無料枠超過時はペイウォール（プレミアム購入導線）が表示されますが、外部送信は発生しません。写真からの取込は端末内 Vision Framework で OCR 処理されるため、AI 後処理を行わない場合は外部送信ゼロです。
 
-**本アプリは広告を一切表示しません**。トラッキング（IDFA）も収集しません。
+**広告について:** 無料版では Google AdMob による広告を表示します（**プレミアムでは広告は表示されません**）。広告配信の最適化のため、起動時に「トラッキングの許可」（App Tracking Transparency）を確認します。許可した場合のみ広告識別子（IDFA）が広告のパーソナライズに利用されます。許可しない場合も広告は表示されますが、パーソナライズはされません。
 
 ### 1.3 取得しない情報
 
 - 氏名、メールアドレス、電話番号などの個人識別情報
 - 位置情報
 - 連絡先・写真・カレンダー等の他アプリのデータ
-- 広告識別子（IDFA）
 - ブロック対象アプリの実際の使用履歴（iOS FamilyControls の制約により開発者は取得不可）
+
+※広告識別子（IDFA）は、無料版で ATT を許可した場合に限り、Google AdMob の広告配信に利用されます（§1.2「広告について」参照）。開発者自身が IDFA を収集・保管することはありません。
 
 ---
 
@@ -62,7 +64,7 @@ chom（以下「開発者」）は、iOS アプリ「MasterGate」（以下「�
 | Google Gemini API | AI問題生成・OCR後処理 | https://policies.google.com/privacy |
 | Cloudflare Workers | AI機能・学習レポートのための中継サーバー | https://www.cloudflare.com/privacypolicy/ |
 | LINE Messaging API | 学習レポートの保護者へのプッシュ（任意連携時のみ） | https://line.me/ja/terms/policy/ |
-| RevenueCat | サブスクリプション管理 | https://www.revenuecat.com/privacy |
+| Google AdMob | 無料版の広告配信 | https://policies.google.com/technologies/ads |
 
 これらのサービスへの送信内容は §1.2 のとおりです。Google および Cloudflare は API リクエストを一定期間サーバーログとして保管する場合があります。
 
@@ -74,6 +76,8 @@ chom（以下「開発者」）は、iOS アプリ「MasterGate」（以下「�
 - AI関連通信は HTTPS で暗号化されます
 - 開発者の Cloudflare Workers サーバーには、リクエスト内容を恒久的に保管しません（リアルタイム中継のみ）
 - 端末紛失時にデータが流出するリスクは、iOS の標準的なセキュリティ機能（パスコード／生体認証／リモートワイプ）に依存します
+
+**iCloud バックアップについて:** 学習データ（カード・進捗など）は、機種変更や再インストール時に復元できるよう、お使いの **iCloud アカウントに自動的にバックアップ**されます（Apple の CloudKit プライベートデータベースを使用）。これはお客様個人の iCloud 内にのみ保存され、**開発者はこのデータにアクセスできません**。端末で iCloud（または iCloud Drive）を無効にしている場合、バックアップは行われません。
 
 ---
 
@@ -103,21 +107,25 @@ chom（以下「開発者」）は、iOS アプリ「MasterGate」（以下「�
 
 本ポリシーや個人情報の取り扱いについてご質問がある場合は、以下までご連絡ください。
 
-**連絡先:** chomurashouta@gmail.com
+**連絡先:** studyblock.app@gmail.com
 
 ---
 
 ## English Summary
 
-MasterGate (the "App") respects user privacy.
+スタブロ (the "App") respects user privacy.
 
 **Stored locally only (never transmitted):** blocked-app tokens, learning cards and progress, quiz history, notification permission state, in-app settings, usage budget.
 
 **Transmitted externally (only when you actively use the feature):**
 - AI question generation: your typed theme is sent through our Cloudflare Workers proxy to Google Gemini.
 - Photo import (AI post-processing): the OCR-recognized text is sent the same way.
-- Subscription purchase: receipt is processed via Apple and RevenueCat.
+- Subscription purchase: transaction is processed via Apple (StoreKit).
 
-**Not collected:** name, email, phone, location, contacts, photos, advertising IDs, actual usage history of blocked apps. **No advertisements are shown.**
+**Ads:** The free version shows ads via Google AdMob (**no ads for Premium users**). On first launch we request App Tracking Transparency permission; only if you allow it is the advertising identifier (IDFA) used to personalize ads. If you decline, ads are still shown but not personalized.
 
-Uninstalling the App deletes all locally stored data. For inquiries, contact chomurashouta@gmail.com.
+**iCloud backup:** Learning data is automatically backed up to your personal iCloud (Apple CloudKit private database) for restore after reinstall or device change. The developer cannot access this data.
+
+**Not collected by the developer:** name, email, phone, location, contacts, photos, actual usage history of blocked apps.
+
+Uninstalling the App deletes all locally stored data. For inquiries, contact studyblock.app@gmail.com.
